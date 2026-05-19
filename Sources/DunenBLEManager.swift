@@ -416,7 +416,9 @@ final class DunenBLEManager: NSObject, ObservableObject {
         guard let data = try? JSONEncoder().encode(diagnosticEvents) else { return }
         UserDefaults.standard.set(data, forKey: "diagnosticEvents")
     }
-    private func  {}
+    private func updateLiveActivityIfNeeded() {
+        // Live Activity removed
+    }
 
 
     private func shouldShowDevice(name: String, advertisementData: [String: Any]) -> Bool {
