@@ -41,7 +41,6 @@ final class SoundManager {
         player = nil
 
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else {
-            print("Missing \(name).mp3, using fallback \(fallbackID)")
             AudioServicesPlaySystemSound(fallbackID)
             return
         }
@@ -57,7 +56,6 @@ final class SoundManager {
             newPlayer.play()
             player = newPlayer
         } catch {
-            print("Sound playback failed for \(name): \(error)")
             AudioServicesPlaySystemSound(fallbackID)
         }
     }

@@ -3,7 +3,6 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject var ble: DunenBLEManager
     @EnvironmentObject var settings: AppSettings
-    @Environment(\.scenePhase) private var scenePhase
 
     @State private var selectedTab: AppTab = .dashboard
     @State private var showSplash = true
@@ -23,11 +22,16 @@ struct RootView: View {
                     VStack(spacing: 0) {
                         Group {
                             switch selectedTab {
-                            case .dashboard: DashboardView()
-                            case .advanced: AdvancedInfoView()
-                            case .tuning: TuningView()
-                            case .diagnostics: DiagnosticsView()
-                            case .settings: SettingsView()
+                            case .dashboard:
+                                DashboardView()
+                            case .advanced:
+                                AdvancedInfoView()
+                            case .tuning:
+                                TuningView()
+                            case .diagnostics:
+                                DiagnosticsView()
+                            case .settings:
+                                SettingsView()
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -52,9 +56,9 @@ struct RootView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
-                withAnimation(.easeInOut(duration: 0.45)) { showSplash = false }
-            }
-        }
+                withAnimation(.easeInOut(duration: 0.45)) {
+                    showSplash = false
+                }
             }
         }
     }

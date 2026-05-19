@@ -325,7 +325,6 @@ struct RPMArc: View {
     let rpm: Int
     let mode: RideMode
 
-    // Lower-left -> top -> lower-right arc. Redline is near the RIGHT/end side.
     private let startTrim = 0.12
     private let totalTrim = 0.76
 
@@ -360,9 +359,7 @@ struct RPMArc: View {
         }
     }
 
-    var preRedlineEnd: Double {
-        min(progress, redlineProgress)
-    }
+    var preRedlineEnd: Double { min(progress, redlineProgress) }
 
     var body: some View {
         ZStack {
@@ -381,12 +378,7 @@ struct RPMArc: View {
                 Circle()
                     .trim(from: startTrim + redlineProgress * totalTrim, to: startTrim + progress * totalTrim)
                     .stroke(
-                        AngularGradient(
-                            gradient: Gradient(colors: [baseColor, .orange, .red]),
-                            center: .center,
-                            startAngle: .degrees(250),
-                            endAngle: .degrees(430)
-                        ),
+                        LinearGradient(colors: [baseColor, .orange, .red], startPoint: .leading, endPoint: .trailing),
                         style: StrokeStyle(lineWidth: 16, lineCap: .round)
                     )
                     .rotationEffect(.degrees(90))

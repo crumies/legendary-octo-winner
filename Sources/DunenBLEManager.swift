@@ -181,12 +181,9 @@ final class DunenBLEManager: NSObject, ObservableObject {
             self.tuningStore?.confirmWritten(ids: ids)
         }
     }
-    func liveActivityDebugStatus() {
-        developerStatus = "Live Activity removed"
-    }
-    func forceLiveActivityRefresh() {
-        developerStatus = "Live Activity removed"
-    }
+    func liveActivityDebugStatus() { developerStatus = "Live Activity removed" }
+    func forceLiveActivityRefresh() { developerStatus = "Live Activity removed" }
+
 
     func clearDiagnosticHistory() {
         diagnosticEvents.removeAll()
@@ -301,7 +298,7 @@ final class DunenBLEManager: NSObject, ObservableObject {
         history.append(telemetry)
         updateRideStats(dt: dt)
         checkDiagnosticEvents()
-        // updateLiveActivityIfNeeded() removed
+        
     }
 
     private func addPacket(_ data: Data) {
@@ -419,9 +416,8 @@ final class DunenBLEManager: NSObject, ObservableObject {
         guard let data = try? JSONEncoder().encode(diagnosticEvents) else { return }
         UserDefaults.standard.set(data, forKey: "diagnosticEvents")
     }
-    private func // updateLiveActivityIfNeeded() removed {
-        // Live Activity removed in v5.4 because it was not reliable without App Store signing/profile entitlements.
-    }
+    private func  {}
+
 
     private func shouldShowDevice(name: String, advertisementData: [String: Any]) -> Bool {
         if name.uppercased().contains("DUNEN") { return true }

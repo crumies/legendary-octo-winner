@@ -92,6 +92,7 @@ struct SettingsView: View {
                         Toggle("Show lean card", isOn: $settings.hudShowLeanCard).tint(.cyan)
                         Toggle("Show status icons", isOn: $settings.hudShowIcons).tint(.cyan)
                     }
+
                     if settings.developerUnlocked {
                         Button {
                             showDeveloperOptions = true

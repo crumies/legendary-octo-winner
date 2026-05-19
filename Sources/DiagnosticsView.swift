@@ -42,7 +42,6 @@ struct DiagnosticsView: View {
                 GlassCard {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Diagnostic History").font(.headline)
-                            .frame(maxWidth: .infinity, alignment: .leading)
                         if ble.diagnosticEvents.isEmpty {
                             Text("No events yet").font(.caption).foregroundStyle(.secondary)
                         } else {
@@ -84,7 +83,6 @@ struct DiagnosticsView: View {
                 }
             }
             .padding(.horizontal, 18)
-            .frame(maxWidth: .infinity)
             .padding(.top, 10)
             .padding(.bottom, 82)
         }
