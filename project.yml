@@ -37,10 +37,6 @@ targets:
         LSSupportsOpeningDocumentsInPlace: true
         UISupportsDocumentBrowser: true
         CFBundleIconName: AppIcon
-
-    dependencies:
-      - target: AptumDashboardWidget
-
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.crumies.AptumDashboard
